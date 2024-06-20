@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 
 import model.dao.DaoFactory;
@@ -20,16 +21,17 @@ public class Program {
 		System.out.println("\n=== TESTE 2: seller findByIdDepartment ===");
 		Department dep = new Department(2, null);
 		List<Seller> list = slrdao.findByIdDepartment(dep);
-		for(Seller obj : list) {
-			System.out.println(obj);
-		}
+		list.forEach(System.out::println);
 		
 		System.out.println("\n=== TESTE 3: seller findAll ===");
 		list = slrdao.findAll();
-		for(Seller obj : list) {
-			System.out.println(obj);
-		}
-
+		list.forEach(System.out::println);
+		
+		System.out.println("\n=== TESTE 4: seller insert ===");
+		Seller newseller = new Seller(null, "greg", "greg@gmail.com", new Date(), 4000.0, dep);
+		slrdao.insert(newseller);
+		System.out.println("Inserted! New id = " + newseller.getId());
+		
 	}
 
 }
