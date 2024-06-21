@@ -32,6 +32,11 @@ public class Program {
 		slrdao.insert(newseller);
 		System.out.println("Inserted! New id = " + newseller.getId());
 		
+		System.out.println("\n=== TESTE 5: seller update ===");
+		slr = slrdao.findById(1);
+		slr.setName("Martha Wayne");
+		slrdao.update(slr);
+		System.out.println("Update completed");
 	}
 
 }
